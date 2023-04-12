@@ -25,18 +25,18 @@ public class Burger {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
+	@NotBlank(message="Burger name must not be blank")
 	private String name;
 	
-	@NotBlank
+	@NotBlank(message="Restaurant name must not be blank")
 	private String restaurantName;
 	
-	@NotNull
-	@Min(value=1)
-	@Max(value=5)
+	@NotNull(message="Rating is required")
+	@Min(value=1, message="Rating must be greater than 0")
+	@Max(value=5, message="Rating cannot be larger than 5")
 	private Integer rating;
 	
-	@NotBlank
+	@NotBlank(message="Notes cannot be blank")
 	private String notes;
 	
 	@Column(updatable=false)
